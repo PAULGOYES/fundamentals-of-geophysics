@@ -1,14 +1,19 @@
-import math
-import cmath
-import time
-import numpy as np
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
+"""
+Created on Thu Feb 27 11:31:48 2020
 
-'''MODIFIED BY PAUL GOYES (ypgoype@uis.edu.co)
-DATE : 24-FEB-2020 
+@author: Modified by Paul Goyes
+E-mail: goyes.yesid@gmail.com
+E-mail: ypgoype@uis.edu.co
+Universidad Industrial de Santander
+
 THIS SCRIPT CREATES THE FIG 1 OF
 http://dx.doi.org/10.1190/tle36080696.1
+"""
 
+'''
 ====================================
 1D MAGNETOTELLURIC MODELLING PROGRAM
 ====================================
@@ -16,7 +21,12 @@ FIRST UPDATED 17TH DECEMBER 2013
 ORIGINAL VERSION DEVELOPED BY ANDREW PETHICK   
 WWW.DIGITIALEARTHLAB.COM      
 '===================================='''
-print('');
+
+import math
+import cmath
+import time
+import numpy as np
+
 start = time.clock();
 
 mu = 4*math.pi*1E-7; #Magnetic Permeability (H/m)
