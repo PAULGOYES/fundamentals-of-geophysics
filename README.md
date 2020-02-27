@@ -1,2 +1,3 @@
-# fundamentals-of-geophysics
-Here you can find some basic but scripts useful for understanding the fundamentals of geophysical methods such as magnetotelluric, electrical resistivity tomography, vertical electrical sounding and Time Domain Electromagnetic (TDEM) sounding method. 
+# Fundamentals of Geophysics
+
+Here you can find some basic but useful scripts for understanding the fundamentals of geophysical methods such as magnetotelluric (MT), Electrical Resistivity Tomography (ERT), Vertical Electrical Sounding (VES) and Time Domain Electromagnetic sounding Method (TDEM).
