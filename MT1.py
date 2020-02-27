@@ -31,6 +31,7 @@ frequencies=np.logspace(-3, 2, 25)
 #print('freq\tares\t\t\tphase');
 
 n = len(resistivities);
+# crea una lista vacia de resistividades aparentes
 apparentResistivity=[]
 phase=[]
 for frequency in frequencies:   
