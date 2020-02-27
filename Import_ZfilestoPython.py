@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """
 Created on Thu Feb 27 11:31:48 2020
 
@@ -10,6 +11,7 @@ E-mail: ypgoype@uis.edu.co
 Universidad Industrial de Santander
 Geological Faculty
 """
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -49,12 +51,11 @@ with open(filepath) as fp:
         combined = line.strip().split() + line2.strip().split()
 
         data.append(combined)
-        
 
 df = pd.DataFrame(data, columns=headers).astype('float')
 array = np.array(data).astype(np.float)
 
-# example of type
+# Check if dtype=float
 #print(type(df['frequency'][0]))
 
 xx = df.frequency.values
@@ -71,3 +72,6 @@ plt.semilogx(xx[1:40],phase[1:40],'b-o')
 plt.xlabel('Frequency [Hz]')
 plt.ylabel('ExHy_scalar_phase')
 plt.grid(True)
+plt.show()
+
+
