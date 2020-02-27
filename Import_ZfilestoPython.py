@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 Created on Thu Feb 27 11:31:48 2020
 
@@ -35,8 +34,6 @@ headers = ['frequency',
         're_Zyy/√(µo)',
         'im_Zyy/√(µo)',
         ]
-
-
 
 with open(filepath) as fp:
     while True:
@@ -73,5 +70,3 @@ plt.xlabel('Frequency [Hz]')
 plt.ylabel('ExHy_scalar_phase')
 plt.grid(True)
 plt.show()
-
-
