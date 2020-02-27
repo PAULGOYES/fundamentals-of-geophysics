@@ -26,24 +26,25 @@ import math
 import cmath
 import time
 import numpy as np
+import matplotlib.pyplot as plt
+from scipy import constants
 
 start = time.clock();
 
-mu = 4*math.pi*1E-7; #Magnetic Permeability (H/m)
-#resistivities = [300, 2500, 0.8, 3000, 2500];
-#thicknesses = [200, 400, 40, 500];
-resistivities = [1.0e+02,1.0e+01,1.0e+02];
-thicknesses = [2000, 1000];
+# Please check the Magnetic Permeability (H/m)
+# at: https://docs.scipy.org/doc/scipy-0.14.0/reference/constants.html#module-scipy.constants
+mu = constants.mu_0; #Magnetic Permeability (H/m)
 
+# parameters of our model
+resistivities = [1.0e+02,1.0e+01,1.0e+02]; # in Ohm-meter
+thicknesses = [2000, 1000]; # In meters
+frequencies=np.logspace(-3, 2, 25) # In logarithmic equidistant range. (Hz)
 
-#frequencies = [0.0001,0.005,0.01,0.05,0.1,0.5,1,5,10,50,100,500,10000];
-frequencies=np.logspace(-3, 2, 25) 
-#print('freq\tares\t\t\tphase');
-
+# forward modelling operator F[m] = d
 n = len(resistivities);
-# crea una lista vacia de resistividades aparentes
 apparentResistivity=[]
 phase=[]
+
 for frequency in frequencies:   
     w =  2*math.pi*frequency;       
     impedances = list(range(n));
@@ -75,13 +76,12 @@ for frequency in frequencies:
     absZ = abs(Z);
     apparentResistivity.append((absZ * absZ)/(mu * w))
     phase.append(math.atan2(Z.imag, Z.real))
-#    print(frequency, '\t', apparentResistivity, '\t', phase);
     
 print('');
 print('time taken = ', time.clock() - start, 's');
 
+# Plot the results in 2 graphs. Phase (degree) and apparent resistivity (ohm meter)
 
-import matplotlib.pyplot as plt
 fig, ax = plt.subplots(2, 1, figsize=(8, 3*2))
 
 ax[0].loglog(frequencies,apparentResistivity,'r-o'), 
