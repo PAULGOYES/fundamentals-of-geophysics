@@ -35,7 +35,7 @@ start = time.clock();
 # at: https://docs.scipy.org/doc/scipy-0.14.0/reference/constants.html#module-scipy.constants
 mu = constants.mu_0; #Magnetic Permeability (H/m)
 
-# parameters of our model
+# Parameters of our resistivity-model
 resistivities = [1.0e+02,1.0e+01,1.0e+02]; # in Ohm-meter
 thicknesses = [2000, 1000]; # In meters
 frequencies=np.logspace(-3, 2, 25) # In logarithmic equidistant range. (Hz)
@@ -56,7 +56,7 @@ for frequency in frequencies:
         thickness = thicknesses[j];
   
         # 3. Compute apparent resistivity from top layer impedance
-        #Step 2. Iterate from bottom layer to top(not the basement) 
+        # Step 2. Iterate from bottom layer to top(not the basement) 
         # Step 2.1 Calculate the intrinsic impedance of current layer
         dj = cmath.sqrt((w * mu * (1.0/resistivity))*1j);
         wj = dj * resistivity;
@@ -80,20 +80,21 @@ for frequency in frequencies:
 print('');
 print('time taken = ', time.clock() - start, 's');
 
-# Plot the results in 2 graphs. Phase (degree) and apparent resistivity (ohm meter)
+# Plot the results in 2 axes. Phase (degree) and apparent resistivity (ohm meter)
 
-fig, ax = plt.subplots(2, 1, figsize=(8, 3*2))
+fig, ax = plt.subplots(2, 1, figsize=(6, 4))
 
 ax[0].loglog(frequencies,apparentResistivity,'r-o'), 
-ax[0].set_ylabel("$\\rho_a \ (\Omega m)$", fontsize=14)
+ax[0].set_ylabel("$\\rho_a \ (\Omega m)$", fontsize=12)
 
-ax[1].semilogx(frequencies,np.array(phase)*180/np.pi,'b-o'), plt.grid()
-ax[1].set_ylabel("$\phi \ (^{\circ})$", fontsize=13)
+ax[1].semilogx(frequencies,np.array(phase)*180/np.pi,'b-o'),
+ax[1].set_ylabel("$\phi \ (^{\circ})$", fontsize=12)
 ax[1].set_ylim([0., 90.])
 
 for a in ax:
-    a.grid(True, which='both', linewidth=0.3)
+    a.grid(True, which='both', linewidth=0.2)
     a.set_xlim(frequencies.max(), frequencies.min())
-    a.set_xlabel("Frequency (Hz)", fontsize=14)
+    a.set_xlabel("Frequency (Hz)", fontsize=10)
 
 plt.tight_layout()
+plt.show()
