@@ -3,7 +3,12 @@
 """
 Created on Mon Feb 24 21:44:04 2020
 
-@author: dharma
+@author: Modified by Paul Goyes
+E-mail: goyes.yesid@gmail.com
+E-mail: ypgoype@uis.edu.co
+Universidad Industrial de Santander
+
+original: https://github.com/seg/tutorials-2017/tree/master/1708_Nonlinear_inversion
 """
 
 import numpy as np
