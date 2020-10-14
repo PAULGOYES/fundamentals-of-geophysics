@@ -6,9 +6,8 @@ Created on Thu Feb 27 11:31:48 2020
 @author: Paul Goyes
 This Script imports you Z_file from Stratagem HS4 used for MT sounding
 E-mail: goyes.yesid@gmail.com
-E-mail: ypgoype@uis.edu.co
+E-mail: yesid.goyes@correo.uis.edu.co
 Universidad Industrial de Santander
-Geological Faculty
 """
 
 import numpy as np
@@ -54,6 +53,7 @@ array = np.array(data).astype(np.float)
 
 # Check if dtype=float
 #print(type(df['frequency'][0]))
+# to-do: remove the zeros values from freqs.
 
 xx = df.frequency.values
 yy = df.ExHy_scalar_apparent_resistivity.values
